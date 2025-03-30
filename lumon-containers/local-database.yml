@@ -1,0 +1,17 @@
+services:
+  postgres:
+    build:
+      context: ./database/
+      dockerfile: Dockerfile
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data/pgdata
+    environment:
+      - POSTGRES_PASSWORD=strong_password
+      - POSTGRES_USER=CreateUserRoleFirst
+      - POSTGRES_DB=DatabaseNameForDatabase
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+volumes:
+  pgdata:
